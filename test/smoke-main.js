@@ -17,6 +17,14 @@ const { app, BrowserWindow, screen } = require('electron');
 // (jinak testy selžou na počítači se škálováním 125/150 %).
 app.commandLine.appendSwitch('force-device-scale-factor', '1');
 
+// macOS: falešné monitory fyzicky neexistují. Simple fullscreen by obě okna „přicvakl“
+// na jedinou skutečnou obrazovku (0,0), okno A by zakrylo okno B a macOS by zakryté okno
+// přestal vykreslovat. V testu proto simple fullscreen vypneme a vykreslování necháme běžet.
+if (process.platform === 'darwin') {
+  BrowserWindow.prototype.setSimpleFullScreen = function () {};
+  app.commandLine.appendSwitch('disable-backgrounding-occluded-windows');
+}
+
 const W = 800;
 const H = 600;
 const fake = [
