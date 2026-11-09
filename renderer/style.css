@@ -1,0 +1,243 @@
+:root {
+  --accent: #1e88e5;
+  --bar-bg: rgba(255, 255, 255, 0.95);
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+  background: #ffffff;
+  overscroll-behavior: none;
+  font-family:
+    'Segoe UI',
+    system-ui,
+    -apple-system,
+    sans-serif;
+}
+
+#board {
+  position: fixed;
+  inset: 0;
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  touch-action: none;
+  cursor: crosshair;
+}
+
+#ring {
+  position: fixed;
+  left: 0;
+  top: 0;
+  display: none;
+  border-radius: 50%;
+  border: 2px solid #000;
+  box-shadow:
+    0 0 0 1px #fff,
+    inset 0 0 0 1px #fff;
+  pointer-events: none;
+  z-index: 5;
+}
+
+#toolbar {
+  position: fixed;
+  left: 50%;
+  bottom: 16px;
+  transform: translateX(-50%);
+  z-index: 10;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px 18px;
+  width: max-content; /* bez toho by se panel s left:50% zúžil na půlku obrazovky */
+  max-width: 96vw;
+  padding: 10px 16px;
+  background: var(--bar-bg);
+  border-radius: 28px;
+  box-shadow:
+    0 6px 30px rgba(0, 0, 0, 0.25),
+    0 0 0 1px rgba(0, 0, 0, 0.08);
+  touch-action: none;
+}
+
+#toolbar.hidden {
+  display: none;
+}
+
+.group {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+.group.column {
+  flex-direction: column;
+  align-items: stretch;
+  gap: 6px;
+}
+
+button {
+  font: inherit;
+  border: 0;
+  border-radius: 18px;
+  background: #f1f3f5;
+  color: #222;
+  cursor: pointer;
+  touch-action: none;
+}
+button:active {
+  filter: brightness(0.92);
+}
+
+button.big {
+  width: 72px;
+  height: 68px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  font-size: 30px;
+  line-height: 1;
+}
+button.big span {
+  font-size: 13px;
+  font-weight: 700;
+  color: #333;
+}
+button.big.active {
+  background: var(--accent);
+}
+button.big.active span {
+  color: #fff;
+}
+button.big.confirm {
+  background: #e53935;
+}
+button.big.confirm span {
+  color: #fff;
+}
+
+#colors {
+  gap: 8px;
+}
+
+.swatch {
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.2);
+  transition: transform 0.08s;
+}
+.swatch.active {
+  box-shadow: 0 0 0 4px #111;
+  transform: scale(1.15);
+}
+
+.sizebtn {
+  width: 54px;
+  height: 54px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.sizebtn i {
+  display: block;
+  border-radius: 50%;
+  background: #111;
+}
+.sizebtn.active {
+  background: #dbeafe;
+  box-shadow: 0 0 0 3px var(--accent);
+}
+
+button.mini {
+  position: relative;
+  overflow: hidden;
+  height: 38px;
+  padding: 0 14px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+button.mini.on {
+  background: #dcfce7;
+  color: #166534;
+}
+button.mini.hold b {
+  position: absolute;
+  inset: 0;
+  background: #ef9a9a;
+  transform: scaleX(0);
+  transform-origin: left;
+}
+button.mini.hold em {
+  position: relative;
+  font-style: normal;
+}
+button.mini.hold.holding b {
+  animation: hold 1.1s linear forwards;
+}
+@keyframes hold {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+#fab {
+  position: fixed;
+  left: 50%;
+  bottom: 16px;
+  transform: translateX(-50%);
+  z-index: 10;
+  display: none;
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  font-size: 36px;
+  background: #fff;
+  box-shadow:
+    0 6px 24px rgba(0, 0, 0, 0.3),
+    0 0 0 1px rgba(0, 0, 0, 0.1);
+}
+#fab.show {
+  display: block;
+}
+
+#toast {
+  position: fixed;
+  top: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 20;
+  max-width: 90vw;
+  padding: 14px 24px;
+  border-radius: 16px;
+  background: #111;
+  color: #fff;
+  font-size: 20px;
+  opacity: 0;
+  transition: opacity 0.25s;
+  pointer-events: none;
+}
+#toast.show {
+  opacity: 1;
+}

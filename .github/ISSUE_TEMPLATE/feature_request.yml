@@ -1,0 +1,41 @@
+name: Feature request
+description: Suggest an idea or improvement.
+title: '[Feature]: '
+labels: ['enhancement']
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for the idea! Multi-Monitor Canvas is meant to stay **simple and kid-friendly**,
+        so not every feature will fit — but every suggestion is read.
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What problem would this solve? Who runs into it?
+      placeholder: When my kid ..., they can't ...
+    validations:
+      required: true
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed solution
+      description: What would you like to happen?
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: Other solutions or workarounds you have thought about.
+    validations:
+      required: false
+  - type: textarea
+    id: kid-friendly
+    attributes:
+      label: Is it kid-friendly?
+      description: |
+        Could a young child use it without reading or help? Could it cause accidental data
+        loss, confusion, or anything unsafe (e.g. network access)?
+    validations:
+      required: false

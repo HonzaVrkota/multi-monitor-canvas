@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 256 256">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#42a5f5"/>
+      <stop offset="1" stop-color="#1565c0"/>
+    </linearGradient>
+    <linearGradient id="rainbow" gradientUnits="userSpaceOnUse" x1="34" y1="0" x2="222" y2="0">
+      <stop offset="0" stop-color="#e53935"/>
+      <stop offset="0.2" stop-color="#fb8c00"/>
+      <stop offset="0.4" stop-color="#fdd835"/>
+      <stop offset="0.6" stop-color="#43a047"/>
+      <stop offset="0.8" stop-color="#1e88e5"/>
+      <stop offset="1" stop-color="#8e24aa"/>
+    </linearGradient>
+  </defs>
+
+  <!-- background -->
+  <rect x="8" y="8" width="240" height="240" rx="56" fill="url(#bg)"/>
+
+  <!-- stands -->
+  <g fill="#0d2b52">
+    <rect x="60" y="160" width="20" height="24"/>
+    <rect x="42" y="178" width="56" height="13" rx="6.5"/>
+    <rect x="176" y="160" width="20" height="24"/>
+    <rect x="158" y="178" width="56" height="13" rx="6.5"/>
+  </g>
+
+  <!-- monitors -->
+  <g fill="#ffffff" stroke="#0d2b52" stroke-width="10" stroke-linejoin="round">
+    <rect x="17" y="70" width="106" height="92" rx="14"/>
+    <rect x="133" y="70" width="106" height="92" rx="14"/>
+  </g>
+
+  <!-- one continuous brush stroke flowing across both screens -->
+  <path d="M38 134 C 62 82, 98 80, 128 116 S 190 150, 218 98"
+        fill="none" stroke="url(#rainbow)" stroke-width="22" stroke-linecap="round"/>
+</svg>

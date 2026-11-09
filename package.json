@@ -1,0 +1,130 @@
+{
+  "name": "multi-monitor-canvas",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Kids' drawing app with one shared canvas spanning all your monitors – draw seamlessly from one screen to another.",
+  "keywords": [
+    "electron",
+    "drawing",
+    "kids",
+    "multi-monitor",
+    "canvas",
+    "wacom",
+    "pen-tablet",
+    "whiteboard"
+  ],
+  "homepage": "https://github.com/HonzaVrkota/multi-monitor-canvas#readme",
+  "bugs": {
+    "url": "https://github.com/HonzaVrkota/multi-monitor-canvas/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HonzaVrkota/multi-monitor-canvas.git"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Honza Vrkota",
+    "url": "https://github.com/HonzaVrkota"
+  },
+  "main": "main.js",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "electron .",
+    "test": "electron test/smoke-main.js",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "screenshot": "electron scripts/screenshot.js",
+    "icons": "electron scripts/make-icons.js",
+    "dist": "electron-builder --publish never",
+    "dist:win": "electron-builder --win --publish never",
+    "dist:linux": "electron-builder --linux --publish never",
+    "dist:mac": "electron-builder --mac --publish never"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.5",
+    "electron": "^45.2.3",
+    "electron-builder": "^26.18.0",
+    "eslint": "^9.39.5",
+    "eslint-config-prettier": "^10.1.8",
+    "globals": "^17.14.0",
+    "prettier": "^3.9.10"
+  },
+  "build": {
+    "appId": "cz.vrkota.multimonitorcanvas",
+    "productName": "Multi-Monitor Canvas",
+    "copyright": "Copyright © 2026 Honza Vrkota",
+    "directories": {
+      "buildResources": "build",
+      "output": "dist"
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "renderer/**",
+      "package.json"
+    ],
+    "publish": null,
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "build/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "artifactName": "${name}-Setup-${version}.${ext}"
+    },
+    "portable": {
+      "artifactName": "${name}-${version}-portable.${ext}"
+    },
+    "mac": {
+      "target": [
+        {
+          "target": "dmg",
+          "arch": [
+            "universal"
+          ]
+        },
+        {
+          "target": "zip",
+          "arch": [
+            "universal"
+          ]
+        }
+      ],
+      "category": "public.app-category.education",
+      "icon": "build/icon.png",
+      "identity": null,
+      "hardenedRuntime": false,
+      "artifactName": "${name}-${version}-mac-universal.${ext}"
+    },
+    "linux": {
+      "target": [
+        {
+          "target": "AppImage",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "category": "Graphics",
+      "icon": "build/icon.png",
+      "artifactName": "${name}-${version}-${arch}.${ext}"
+    }
+  }
+}

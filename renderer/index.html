@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="cs">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:;"
+    />
+    <title>Kreslení</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <canvas id="board"></canvas>
+    <div id="ring"></div>
+    <div id="toast"></div>
+
+    <div id="toolbar">
+      <div class="group">
+        <button id="btn-pen" class="big" type="button">✏️<span>Kreslit</span></button>
+        <button id="btn-eraser" class="big" type="button">🧽<span>Guma</span></button>
+      </div>
+      <div class="group" id="sizes"></div>
+      <div class="group" id="colors"></div>
+      <div class="group">
+        <button id="btn-undo" class="big" type="button">↩️<span>Zpět</span></button>
+        <button id="btn-clear" class="big" type="button">🗑️<span>Smazat</span></button>
+        <button id="btn-save" class="big" type="button">💾<span>Uložit</span></button>
+      </div>
+      <div class="group column">
+        <button id="btn-pressure" class="mini" type="button">Tlak pera</button>
+        <button id="btn-hide" class="mini" type="button">Schovat ▾</button>
+        <button id="btn-quit" class="mini hold" type="button"><b></b><em>Konec (přidrž)</em></button>
+      </div>
+    </div>
+
+    <button id="fab" type="button" aria-label="Zobrazit nástroje">🎨</button>
+
+    <script src="renderer.js"></script>
+  </body>
+</html>

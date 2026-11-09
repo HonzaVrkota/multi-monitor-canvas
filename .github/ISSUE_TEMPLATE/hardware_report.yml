@@ -1,0 +1,77 @@
+name: Hardware report ("Works on my setup")
+description: Tell us how the app runs on your hardware, whether it works or not.
+title: '[Hardware]: '
+labels: ['hardware-report']
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you! The app has mostly been tested with simulated monitors, so reports from
+        real setups (pen tablets, multiple physical monitors, mixed scaling) are very valuable.
+        If something is clearly broken, a [bug report](https://github.com/HonzaVrkota/multi-monitor-canvas/issues/new?template=bug_report.yml) is great too.
+  - type: input
+    id: version
+    attributes:
+      label: App version
+      placeholder: e.g. 0.1.0
+    validations:
+      required: true
+  - type: input
+    id: os
+    attributes:
+      label: OS and version
+      placeholder: e.g. Windows 11 24H2 / macOS 15.1 / Ubuntu 24.04 (X11)
+    validations:
+      required: true
+  - type: textarea
+    id: monitors
+    attributes:
+      label: Monitors
+      description: Number of monitors, resolutions and arrangement.
+      placeholder: e.g. 3 monitors side by side, all 1920x1080
+    validations:
+      required: true
+  - type: input
+    id: scaling
+    attributes:
+      label: Display scaling per monitor
+      placeholder: e.g. 100 % / 125 % / 100 %
+    validations:
+      required: true
+  - type: input
+    id: tablet
+    attributes:
+      label: Tablet / input device
+      description: Model, driver version, Windows Ink on/off (or "mouse only").
+      placeholder: e.g. Huion H610 Pro V2, driver 15.7, Windows Ink on
+    validations:
+      required: true
+  - type: dropdown
+    id: pressure
+    attributes:
+      label: Does pen pressure work?
+      options:
+        - 'Yes'
+        - 'No'
+        - Partially
+        - Not applicable (no pen)
+    validations:
+      required: true
+  - type: dropdown
+    id: crossing
+    attributes:
+      label: Do strokes cross between monitors smoothly?
+      options:
+        - 'Yes, seamless'
+        - Mostly, with a small offset or glitch
+        - 'No'
+        - Not applicable (single monitor)
+    validations:
+      required: true
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes
+      description: Anything else — performance, eraser tip, hot-plugging monitors, screenshots.
+    validations:
+      required: false

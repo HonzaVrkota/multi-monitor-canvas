@@ -1,0 +1,95 @@
+name: Bug report
+description: Something does not work as expected.
+title: '[Bug]: '
+labels: ['bug']
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report a bug! Multi-Monitor Canvas depends heavily on
+        your hardware setup, so the more details you give, the easier it is to fix.
+        Security issues: please use the [security policy](https://github.com/HonzaVrkota/multi-monitor-canvas/security/policy) instead.
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: A clear and concise description of the bug.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Start the app
+        2. Draw a stroke from the left monitor to the right one
+        3. ...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: App version
+      placeholder: e.g. 0.1.0
+    validations:
+      required: true
+  - type: dropdown
+    id: os
+    attributes:
+      label: Operating system
+      options:
+        - Windows
+        - macOS
+        - Linux
+    validations:
+      required: true
+  - type: input
+    id: os-version
+    attributes:
+      label: OS version and package type
+      description: Include the package you used (installer, portable, dmg/zip, AppImage) and on Linux the session type (X11/Wayland).
+      placeholder: e.g. Windows 11 23H2, portable .exe
+    validations:
+      required: true
+  - type: textarea
+    id: monitors
+    attributes:
+      label: Monitor setup
+      description: Number of monitors, their resolutions and how they are arranged.
+      placeholder: e.g. 2 monitors, 2560x1440 (left, primary) + 1920x1080 (right, aligned to bottom)
+    validations:
+      required: true
+  - type: textarea
+    id: scaling
+    attributes:
+      label: Display scaling per monitor
+      placeholder: e.g. left 100 %, right 150 %
+    validations:
+      required: true
+  - type: textarea
+    id: input-device
+    attributes:
+      label: Input device
+      description: Mouse, touch screen, or pen tablet (model + driver version). For Windows tablets, is Windows Ink on or off? Is the tablet mapped to all displays?
+      placeholder: e.g. Wacom Intuos S (CTL-4100), driver 6.4.5, Windows Ink on, mapped to all displays
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs and screenshots
+      description: Console output, screenshots or a short video. Drag and drop files here.
+    validations:
+      required: false
