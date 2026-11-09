@@ -23,8 +23,8 @@ Please include:
 - steps to reproduce or a proof of concept,
 - the app version and your OS.
 
-You can expect an initial response within a few days. We will keep you informed while
-we work on a fix and credit you in the release notes if you wish.
+This is a hobby project maintained in spare time, so there is no guaranteed response time. Reports are handled on
+a best-effort basis, and you will be credited in the release notes if you wish.
 
 ## Security posture
 
